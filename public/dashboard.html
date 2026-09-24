@@ -1,11 +1,39 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Photo Dashboard</title><link rel="stylesheet" href="/css/dashboard.css"></head>
-<body><main class="dashboard-shell">
-  <header><div><p class="eyebrow">PHOTO IMPORT</p><h1>Photo Dashboard</h1><p id="total">Total Images: 0</p></div><div class="header-actions"><a href="/" class="outline-button">Import photos</a><button id="refresh" class="primary-button">Refresh</button></div></header>
-  <p id="message" class="message" aria-live="polite"></p><section id="gallery" class="gallery" aria-live="polite"></section>
-  <nav id="pagination" class="pagination" aria-label="Gallery pagination" hidden><button id="previous">Previous</button><span id="page-info"></span><button id="next">Next</button></nav>
-</main>
-<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-content"><button id="close-modal" class="close" aria-label="Close preview">×</button><img id="modal-image" alt=""><div class="modal-details"><h2 id="modal-title"></h2><p id="modal-meta"></p><a id="modal-download" class="primary-button" href="#">Download</a></div></div></div>
-<div id="confirm-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="confirm-title"><div class="confirm-content"><h2 id="confirm-title">Delete this photo?</h2><p>This action cannot be undone.</p><div><button id="cancel-delete" class="outline-button">Cancel</button><button id="confirm-delete" class="danger-button">Delete</button></div></div></div>
-<script src="/js/dashboard.js?v=1.0.1"></script></body></html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+  <main class="dashboard-shell">
+    <header>
+      <div>
+        <p class="eyebrow">PHOTO IMPORT</p>
+        <h1>Photo Dashboard</h1>
+        <p id="total">Total Images: 0</p>
+      </div>
+      <div class="header-actions"><a href="/" class="outline-button">Import photos</a><button id="refresh"
+          class="primary-button">Refresh</button></div>
+    </header>
+    <p id="message" class="message" aria-live="polite"></p>
+    <section id="gallery" class="gallery" aria-live="polite"></section>
+    <nav id="pagination" class="pagination" aria-label="Gallery pagination" hidden><button
+        id="previous">Previous</button><span id="page-info"></span><button id="next">Next</button></nav>
+  </main>
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content"><button id="close-modal" class="close" aria-label="Close preview">×</button><img
+        id="modal-image" alt="">
+      <div class="modal-details">
+        <h2 id="modal-title"></h2>
+        <p id="modal-meta"></p><a id="modal-download" class="primary-button" href="#">Download</a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+</html>
