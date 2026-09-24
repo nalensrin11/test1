@@ -30,7 +30,7 @@ function render(photos) {
     const details = document.createElement('div'); details.className = 'details';
     const title = document.createElement('h2'); title.textContent = photo.originalName || 'Unnamed photo'; const stored = document.createElement('p'); stored.textContent = photo.filename; const info = document.createElement('p'); info.textContent = `${formatBytes(photo.size)} · ${new Date(photo.uploadedAt).toLocaleString()}`;
     const actions = document.createElement('div'); actions.className = 'card-actions';
-    const view = button('View', () => showPreview(photo)); const download = document.createElement('a'); download.textContent = 'Download'; download.href = `/api/photos/${encodeURIComponent(photo.filename)}/download`; const remove = button('Delete', () => { pendingDelete = photo; confirmModal.hidden = false; }); remove.className = 'delete';
+    const view = button('View', () => showPreview(photo)); const download = document.createElement('a'); download.textContent = 'Download'; download.href = `/api/photos/${encodeURIComponent(photo.filename)}/download`; const remove = button('Delete', () => { closeModal(); pendingDelete = photo; confirmModal.hidden = false; }); remove.className = 'delete';
     actions.append(view, download, remove); details.append(title, stored, info, actions); card.append(details); gallery.append(card);
   });
 }
