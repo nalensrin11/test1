@@ -8,6 +8,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "dotenv": "^18.0.3",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
     "multer": "^2.4.0"

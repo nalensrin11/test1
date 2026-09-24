@@ -1,3 +1,5 @@
+require('dotenv').config({ quiet: true });
+
 const express = require('express');
 const helmet = require('helmet');
 const multer = require('multer');
@@ -7,9 +9,19 @@ const path = require('path');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
-const MAX_FILE_SIZE = Number(process.env.MAX_FILE_SIZE) || 20 * 1024 * 1024;
-const MAX_FILES_PER_REQUEST = Number(process.env.MAX_FILES_PER_REQUEST) || 10;
+function envNumber(name, fallback, { min, max }) {
+  const rawValue = process.env[name];
+  if (rawValue === undefined || rawValue === "") return fallback;
+  const value = Number(rawValue);
+  if (!Number.isInteger(value) || value < min || value > max) {
+    throw new Error(`${name} must be an integer between ${min} and ${max}.`);
+  }
+  return value;
+}
+
+const PORT = envNumber("PORT", 3000, { min: 1, max: 65535 });
+const MAX_FILE_SIZE = envNumber("MAX_FILE_SIZE", 20 * 1024 * 1024, { min: 1, max: 100 * 1024 * 1024 });
+const MAX_FILES_PER_REQUEST = envNumber("MAX_FILES_PER_REQUEST", 10, { min: 1, max: 100 });
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
 const DATA_DIR = path.join(__dirname, 'data');
 const METADATA_FILE = path.join(DATA_DIR, 'photos.json');

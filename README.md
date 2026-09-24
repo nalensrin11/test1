@@ -6,6 +6,7 @@ A mobile-friendly Express application that lets people select photos through the
 
 ```bash
 npm install
+ .env.example .env
 npm start
 ```
 
@@ -16,6 +17,7 @@ Open `http://localhost:3000` for upload or `http://localhost:3000/dashboard` for
 - `PORT` — defaults to `3000`.
 - `MAX_FILE_SIZE` — maximum upload size per image in bytes; defaults to `20971520` (20 MB).
 - `MAX_FILES_PER_REQUEST` — server-side maximum per request; defaults to `10`. The client sends one image per request and uses up to three concurrent uploads.
+\nCopy `.env.example` to `.env` for local development or create `/var/www/photo-import/.env` on EC2. `.env` is deliberately excluded from Git; only commit `.env.example`. Environment variables supplied by systemd, Docker, or your deployment platform take precedence over values in `.env`.
 
 Images are kept in `uploads/`; lightweight metadata is stored in `data/photos.json`. Both are local storage suitable for an initial EC2 deployment. Back up these directories together. Neither is committed to Git.
 
