@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Import</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <main class="upload-shell">
+    <a class="dashboard-link" href="./dashboard">Open dashboard</a>
+    <section class="upload-card" aria-labelledby="page-title">
+      <div class="icon" aria-hidden="true">↑</div>
+      <h1 id="page-title">Photo Import</h1>
+      <p class="lead">Import your photos securely.</p>
+      <input id="photo-input" type="file" accept="image/*" multiple hidden>
+      <button id="import-button" class="primary-button" type="button">Import Photos</button>
+      <p id="status" class="status" aria-live="polite">No photos selected</p>
+      <div id="progress-area" class="progress-area" hidden>
+        <div class="progress-label"><span id="progress-text">Uploading photos…</span><span id="percentage">0%</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p class="hint">Please keep this page open.</p>
+      </div>
+      <button id="retry-button" class="secondary-button" type="button" hidden>Retry Failed</button>
+    </section>
+  </main>
+  <script src="/js/upload.js"></script>
+</body>
+
+</html>
